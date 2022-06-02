@@ -6,6 +6,8 @@
 
 body {
     background-image: url("/images/menu/ambient.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
     overflow: hidden;
 }
@@ -28,6 +30,14 @@ body {
     animation: clouds-animation 60s infinite alternate linear;
 }
 
+.fox {
+    position: fixed;
+    width: 150px;
+    bottom: 9rem;
+    animation-delay: 2s;
+    animation: fox-animation 5s infinite linear;
+}
+
 @keyframes board-animation {
     0% {
         top: -610px
@@ -46,5 +56,14 @@ body {
     }
     to {
         left: -1920px;
+    }
+}
+
+@keyframes fox-animation {
+    from {
+        left: -150px;
+    }
+    to {
+        left: 2070px;
     }
 }
