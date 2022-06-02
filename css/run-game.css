@@ -6,12 +6,16 @@
 
 .game-board {
     width: 100%;
-    height: 500px;
+    height: 100%;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
     background: linear-gradient(#87CEEB, #E0F6FF);
-    border-bottom: 15px solid green;
+}
+
+@font-face {
+    font-family: "Upheaval";
+    src: url("/fonts/upheavtt.ttf");
 }
 
 .floor {
@@ -54,11 +58,43 @@
     animation: mario-jump 500ms ease-out;
 }
 
+input[type=button],
+h1 {
+    position: absolute;
+    font-family: 'Upheaval';
+    font-size: 4rem;
+    background: none;
+    border: none;
+    z-index: 2;
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    display: none;
+    top: 32%;
+    left: 38%;
+    background: gray;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+}
+
+h3 {
+    font-family: 'Upheaval';
+    font-size: 3rem;
+    padding: 2rem;
+    position: absolute;
+}
+
+input[type=button]:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
 .restart-button {
     display: none;
     position: absolute;
-    top: 50%;
-    left: 47%;
+    top: 45%;
+    left: 41.5%;
 }
 
 @keyframes clouds-animation {

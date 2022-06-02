@@ -10,13 +10,15 @@
 
 <body>
     <div class="game-board">
-        <button class="restart-button" onclick=restartGame()>Restart Game</button>
+        <h3 class="score">000</h3>
+        <div class="text">
+            <h1 class="text-end-game">End Game !</h1>
+            <input type="button" class="restart-button" onclick=restartGame() value="Restart"></input>
+        </div>
         <img src="/images/clouds.png" alt="clouds" class="clouds cloud-scrolling">
         <img src="/images/pipe.png" alt="mario-pipe" class="pipe running">
         <img src="/images/mario.gif" alt="mario" class="mario">
     </div>
-
-
 
     <script src="/js/script.js"></script>
 </body>

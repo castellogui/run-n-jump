@@ -1,11 +1,14 @@
 const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
-const clouds = document.querySelector('.clouds')
-const restartButton = document.querySelector('.restart-button')
+const clouds = document.querySelector('.clouds');
+const restartButton = document.querySelector('.restart-button');
+const text = document.querySelector('.text-end-game');
+const scoreText = document.querySelector('.score');
+var score;
+var running = true;
 
 
 const mariojump = () => {
-    console.log('pulou')
     mario.classList.add('jump');
 
     setTimeout(() => {
@@ -19,6 +22,7 @@ const restartGame = () => {
     restartClouds();
     removeButton();
     verificationFunction();
+    running = false;
 }
 
 const restartPipeAnimation = () => {
@@ -28,7 +32,7 @@ const restartPipeAnimation = () => {
 }
 
 const restartMarioAnimation = () => {
-    mario.src = '/mario game/images/mario.gif'
+    mario.src = '/images/mario.gif'
     mario.removeAttribute('style')
 }
 
@@ -40,6 +44,7 @@ const restartClouds = () => {
 
 const removeButton = () => {
     restartButton.style.display = 'none'
+    text.style.display = 'none'
 }
 
 
@@ -48,7 +53,6 @@ const verificationFunction = () => {
         const pipePosition = pipe.offsetLeft;
         const cloudPosition = clouds.offsetLeft;
         const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
-        console.log('fora')
 
         if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
             pipe.classList.remove('running')
@@ -57,23 +61,29 @@ const verificationFunction = () => {
             mario.style.animation = 'none';
             mario.style.bottom = `${marioPosition}px`
 
-            mario.src = '/mario game/images/game-over.png';
+            mario.src = '/images/game-over.png';
             mario.style.width = '50px'
-            mario.style.height = '90px'
+            mario.style.height = '80px'
             mario.style.marginLeft = '70px';
-
 
             clouds.classList.remove('cloud-scrolling')
             clouds.style.left = `${cloudPosition}px`
 
             restartButton.style.display = 'inline';
+            text.style.display = 'inline';
+
+            running = false;
 
             clearInterval(verificationEndGame)
-            console.log('dentro')
+        }
+
+        //fazer a adicao de pontuacao
+        if (pipePosition < 50) {
+            console.log('pontuou')
         }
     })
 }
 
 
-document.addEventListener('keydown', mariojump)
+document.addEventListener('keypress', mariojump)
 verificationFunction();
