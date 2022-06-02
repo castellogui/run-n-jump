@@ -4,23 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Mario Jump</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <title>Run n' Jump!</title>
 </head>
 
 <body>
-    <div class="game-board">
-        <h3 class="score">000</h3>
-        <div class="text">
-            <h1 class="text-end-game">End Game !</h1>
-            <input type="button" class="restart-button" onclick=restartGame() value="Restart"></input>
-        </div>
-        <img src="/images/clouds.png" alt="clouds" class="clouds cloud-scrolling">
-        <img src="/images/pipe.png" alt="mario-pipe" class="pipe running">
-        <img src="/images/mario.gif" alt="mario" class="mario">
-    </div>
-
-    <script src="/js/script.js"></script>
+    <img src="/images/menu/board.png" onmouseover="this.src='/images/menu/board-active.png'" onmouseleave="this.src='/images/menu/board.png'" alt="board-menu" class="board">
+    <img src="/images/menu/clouds.png" alt="" class="clouds">
+    <script src="/js/index.js"></script>
 </body>
 
 

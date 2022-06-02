@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+body {
+    background-image: url("/images/menu/ambient.png");
+    position: relative;
+    overflow: hidden;
+}
+
+.board {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -80px;
+    z-index: 2;
+    width: 700px;
+    display: block;
+    margin: 0 auto;
+    animation: board-animation 850ms;
+}
+
+.clouds {
+    z-index: 1;
+    position: absolute;
+    animation: clouds-animation 60s infinite alternate linear;
+}
+
+@keyframes board-animation {
+    0% {
+        top: -610px
+    }
+    70% {
+        top: 0px
+    }
+    100% {
+        top: -80px
+    }
+}
+
+@keyframes clouds-animation {
+    from {
+        left: 300px;
+    }
+    to {
+        left: -1920px;
+    }
+}
