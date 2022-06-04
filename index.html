@@ -5,16 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="shortcut icon" href="/images/icon/fox-icon.ico" type="image/x-icon">
     <title>Run n' Jump!</title>
 </head>
 
 <body>
-
-    <a onclick='rideUpBoard()'>
-        <img src="/images/menu/board.png" onmouseover="this.src='/images/menu/board-active.png'" onmouseleave="this.src='/images/menu/board.png'" alt="board-menu" class="board">
-    </a>
-    <img src="/images/menu/clouds.png" alt="" class="clouds">
-    <img src="/images/char/fox/running/fox.gif" alt="fox" class="fox">
+    <div class="game-container">
+        <img src="/images/menu/clouds.png" alt="" class="clouds">
+        <div class="board-container">
+            <a onclick='rideBoard()'>
+                <img src="/images/menu/board.png" onmouseover="this.src='/images/menu/board-active.png'"
+                    onmouseleave="this.src='/images/menu/board.png'" alt="board-menu" class="board">
+            </a>
+        </div>
+        <div class="bottom-container">
+            <!-- <img src="/images/menu/floor.png" alt="floor" class="floor"> -->
+            <!-- <div class="fox">
+                    <img src="/images/char/fox/running/fox.gif" alt="fox">
+                </div> -->
+        </div>
+    </div>
     <script src="/js/index.js"></script>
 </body>
 

@@ -1,3 +1,7 @@
+:root {
+    --sky-color: #90fcfc;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,48 +9,117 @@
 }
 
 body {
-    background-image: url("/images/menu/ambient.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+    background-image: url("/images/menu/sky.png");
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+    background-color: var(--sky-color);
     overflow: hidden;
 }
 
-.board {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -80px;
+.game-container {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 85% 15%;
+}
+
+.board-container {
+    grid-column-start: 2;
+    position: relative;
+    bottom: 90px;
     z-index: 2;
-    width: 700px;
+    animation: board-animation 700ms;
+}
+
+.board {
     display: block;
     margin: 0 auto;
-    animation: board-animation 850ms;
+    width: 100%;
 }
 
 .clouds {
-    z-index: 1;
     position: absolute;
+    z-index: 1;
+    width: 100%;
     animation: clouds-animation 60s infinite alternate linear;
+}
+
+.bottom-container {
+    background: url("/images/menu/floor.png");
+    background-color: #74382e;
+    background-repeat: repeat-x;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    flex-direction: column;
+    z-index: 1;
+    width: 100%;
 }
 
 .fox {
     position: fixed;
     width: 150px;
     bottom: 9rem;
+    z-index: 2;
     animation-delay: 2s;
     animation: fox-animation 5s infinite linear;
 }
 
+.fox img {
+    width: 150px;
+}
+
+@media (min-width: 1290px) {
+    .board {
+        width: 700px;
+    }
+}
+
+
+
+@keyframes board-select-animation {
+    0% {
+        bottom: 90px;
+    }
+
+    70% {
+        bottom: 310px;
+    }
+
+    100% {
+        bottom: 295px;
+    }
+}
+
+@keyframes board-unselect-animation {
+    0% {
+        bottom: 295px
+    }
+
+    70% {
+        bottom: 10px
+    }
+
+    100% {
+        bottom: 90px;
+    }
+}
+
 @keyframes board-animation {
     0% {
-        top: -610px
+        bottom: 700px;
     }
+
     70% {
-        top: 0px
+        bottom: 10px;
     }
+
+    90% {
+        bottom: 120px;
+    }
+
     100% {
-        top: -80px
+        bottom: 90px;
     }
 }
 
@@ -54,6 +127,7 @@ body {
     from {
         left: 300px;
     }
+
     to {
         left: -1920px;
     }
@@ -63,6 +137,7 @@ body {
     from {
         left: -150px;
     }
+
     to {
         left: 2070px;
     }
