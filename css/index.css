@@ -31,10 +31,15 @@ body {
     animation: board-animation 700ms;
 }
 
-.board {
+.board,
+.board-only {
     display: block;
     margin: 0 auto;
     width: 100%;
+}
+
+.board-only {
+    display: none;
 }
 
 .clouds {
@@ -70,12 +75,24 @@ body {
 }
 
 @media (min-width: 1290px) {
-    .board {
+
+    .board,
+    .board-only {
         width: 700px;
     }
 }
 
+@media (max-width: 850px) {
 
+    .board {
+        display: none;
+    }
+
+    .board-only {
+        display: block;
+        width: 700px;
+    }
+}
 
 @keyframes board-select-animation {
     0% {
