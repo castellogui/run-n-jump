@@ -1,5 +1,18 @@
 :root {
     --sky-color: #90fcfc;
+
+    --first-point: 700px;
+    --second-point: 10px;
+    --third-point: 120px;
+    --fourth-point: 90px;
+
+    --first-point-a: 90px;
+    --second-point-a: 310px;
+    --third-point-a: 295px;
+
+    --first-point-d: 295px;
+    --second-point-d: 10px;
+    --third-point-d: 90px;
 }
 
 * {
@@ -26,7 +39,7 @@ body {
 .board-container {
     grid-column-start: 2;
     position: relative;
-    bottom: 90px;
+    bottom: var(--fourth-point);
     z-index: 2;
     animation: board-animation 700ms;
 }
@@ -40,6 +53,7 @@ body {
 
 .board-only {
     display: none;
+
 }
 
 .clouds {
@@ -56,7 +70,9 @@ body {
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 2;
+    display: flex;
     flex-direction: column;
+    align-items: center;
     z-index: 1;
     width: 100%;
 }
@@ -64,7 +80,6 @@ body {
 .fox {
     position: fixed;
     width: 150px;
-    bottom: 9rem;
     z-index: 2;
     animation-delay: 2s;
     animation: fox-animation 5s infinite linear;
@@ -72,6 +87,8 @@ body {
 
 .fox img {
     width: 150px;
+    position: absolute;
+    bottom: -12px;
 }
 
 @media (min-width: 1290px) {
@@ -84,59 +101,84 @@ body {
 
 @media (max-width: 850px) {
 
+    :root {
+        --first-point: 250px;
+        --second-point: -380px;
+        --third-point: -200px;
+        --fourth-point: -285px;
+
+        --first-point-a: -285px;
+        --second-point-a: -330px;
+        --third-point-a: -50px;
+    }
+
     .board {
         display: none;
     }
 
     .board-only {
         display: block;
-        width: 700px;
+        width: 100%;
+        transform: scale(1.4);
+    }
+}
+
+@media (max-width: 450px) {
+    :root {
+        --first-point: 250px;
+        --second-point: -220px;
+        --third-point: -120px;
+        --fourth-point: -140px;
+
+        --first-point-a: -140px;
+        --second-point-a: -190px;
+        --third-point-a: -50px;
     }
 }
 
 @keyframes board-select-animation {
     0% {
-        bottom: 90px;
+        bottom: var(--first-point-a);
     }
 
     70% {
-        bottom: 310px;
+        bottom: var(--second-point-a);
     }
 
     100% {
-        bottom: 295px;
+        bottom: var(--third-point-a);
     }
 }
 
 @keyframes board-unselect-animation {
     0% {
-        bottom: 295px
+        bottom: var(--third-point-a)
     }
 
     70% {
-        bottom: 10px
+        bottom: var(--second-point-a)
     }
 
     100% {
-        bottom: 90px;
+        bottom: var(--first-point-a)
     }
 }
 
 @keyframes board-animation {
     0% {
-        bottom: 700px;
+        bottom: var(--first-point);
     }
 
     70% {
-        bottom: 10px;
+        bottom: var(--second-point);
     }
 
     90% {
-        bottom: 120px;
+        bottom: var(--third-point);
     }
 
     100% {
-        bottom: 90px;
+        bottom: var(--fourth-point);
     }
 }
 
