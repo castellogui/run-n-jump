@@ -10,9 +10,9 @@
     --second-point-a: 310px;
     --third-point-a: 295px;
 
-    --first-point-d: 295px;
-    --second-point-d: 10px;
-    --third-point-d: 90px;
+    --first-point-p: 200px;
+    --second-point-p: 15px;
+    --third-point-p: 70px;
 }
 
 * {
@@ -46,14 +46,29 @@ body {
 
 .board,
 .board-only {
+    position: relative;
     display: block;
     margin: 0 auto;
     width: 100%;
+    z-index: 2;
 }
 
 .board-only {
     display: none;
 
+}
+
+.board-play,
+.board-only-play {
+    position: relative;
+    bottom: var(--first-point-p);
+    display: block;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.board-only-play {
+    display: none;
 }
 
 .clouds {
@@ -80,12 +95,13 @@ body {
 .fox {
     position: fixed;
     width: 150px;
-    z-index: 2;
+    z-index: 1;
     animation-delay: 2s;
     animation: fox-animation 5s infinite linear;
 }
 
 .fox img {
+    z-index: 0;
     width: 150px;
     position: absolute;
     bottom: -12px;
@@ -99,7 +115,7 @@ body {
     }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1024px) {
 
     :root {
         --first-point: 250px;
@@ -110,6 +126,10 @@ body {
         --first-point-a: -285px;
         --second-point-a: -330px;
         --third-point-a: -50px;
+
+        --first-point-p: 140px;
+        --second-point-p: 5px;
+        --third-point-p: 25px;
     }
 
     .board {
@@ -120,6 +140,14 @@ body {
         display: block;
         width: 100%;
         transform: scale(1.4);
+    }
+
+    .board-play {
+        display: none;
+    }
+
+    .board-only-play {
+        display: block;
     }
 }
 
@@ -133,6 +161,44 @@ body {
         --first-point-a: -140px;
         --second-point-a: -190px;
         --third-point-a: -50px;
+
+        --first-point-p: 140px;
+        --second-point-p: 20px;
+        --third-point-p: 40px;
+    }
+}
+
+@media (max-width: 280px) {
+    .board-only {
+        width: 75%;
+    }
+}
+
+@keyframes play-unselect-animation {
+    0% {
+        bottom: var(--third-point-p);
+    }
+
+    40% {
+        bottom: var(--second-point-p);
+    }
+
+    100% {
+        bottom: var(--first-point-p);
+    }
+}
+
+@keyframes play-board-animation {
+    0% {
+        bottom: var(--first-point-p);
+    }
+
+    70% {
+        bottom: var(--second-point-p);
+    }
+
+    100% {
+        bottom: var(--third-point-p);
     }
 }
 

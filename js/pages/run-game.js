@@ -61,7 +61,7 @@ const verificationFunction = () => {
             mario.style.animation = 'none';
             mario.style.bottom = `${marioPosition}px`
 
-            mario.src = '/images/game-over.png';
+            mario.src = '/images/char/mario/game-over.png';
             mario.style.width = '50px'
             mario.style.height = '80px'
             mario.style.marginLeft = '70px';
